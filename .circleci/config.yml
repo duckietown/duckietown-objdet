@@ -1,0 +1,114 @@
+version: 2
+workflows:
+  version: 2
+  test:
+    jobs:
+    - test-3.7
+    - test-2.7
+jobs:
+  test-3.7: &test-template
+    environment:
+      COLUMNS: 160
+      # default is /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      PATH: /root/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    docker:
+    - image: python:3.7
+    steps:
+    - checkout
+    - run:
+        name: Install Git LFS
+        command: |
+          curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+          apt-get update
+          apt-get install -y git-lfs openssh-client
+          git lfs install
+          mkdir -p ~/.ssh
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+          ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
+          git lfs pull
+    - run:
+        name: Install deps
+        command: |
+          echo PATH=$PATH
+          cd lib-objdet
+          pip install -q --user --upgrade -r requirements.txt
+
+    - run:
+        name: List deps
+        command: |
+          cd lib-objdet
+          mkdir -p artifacts
+          pip freeze | tee artifacts/pip-freeze.txt
+
+    - run:
+        name: setup.py develop
+        command: |
+          cd lib-objdet
+          python setup.py develop --prefix ~/.local --no-deps
+
+    - run:
+        name: Run tests
+        command: |
+          cd lib-objdet
+          make tests-coverage-single-nocontracts
+
+    - run:
+        name: Notebooks
+        command: |
+          cd lib-objdet
+          make -C notebooks || true
+
+    - run:
+        name: Coverage analysis
+        when: always
+        command: |
+          cd lib-objdet
+          make coverage-report
+
+    - run:
+        name: Coveralls submission
+        when: always
+        command: |
+          cd lib-objdet
+          make coverage-coveralls
+
+    - run:
+        name: Create JUnit output
+        when: always
+        command: |
+          cd lib-objdet
+          make junit
+
+    - test-results-store:
+        path: lib-objdet/out-comptests/junit
+
+    - store_artifacts:
+        path: lib-objdet/out-comptests/duckietown_objdet_tests
+        destination: duckietown_objdet_tests
+
+    - store_artifacts:
+        path: lib-objdet/artifacts
+        destination: artifacts
+
+    - store_artifacts:
+        path: lib-objdet/out_coverage
+        destination: coverage
+
+    - store_artifacts:
+        path: lib-objdet/notebooks
+        destination: notebooks
+
+  test-2.7:
+    <<: *test-template
+    docker:
+    - image: python:2.7
+
+#  test-circle-2.7:
+#    <<: *test-template
+#    docker:
+#    - image: circle/python
+# test-3.5:
+#    <<: *test-template
+#    docker:
+#      - image: python:3.5
+#

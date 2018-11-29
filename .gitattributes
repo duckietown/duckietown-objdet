@@ -1,0 +1,12 @@
+*svg filter=lfs diff=lfs merge=lfs -text
+*json filter=lfs diff=lfs merge=lfs -text
+*png filter=lfs diff=lfs merge=lfs -text
+*jpg filter=lfs diff=lfs merge=lfs -text
+*jpeg filter=lfs diff=lfs merge=lfs -text
+*JPG filter=lfs diff=lfs merge=lfs -text
+*mp4 filter=lfs diff=lfs merge=lfs -text
+*mov filter=lfs diff=lfs merge=lfs -text
+*MP4 filter=lfs diff=lfs merge=lfs -text
+*.bag filter=lfs diff=lfs merge=lfs -text
+
+*.html filter=lfs diff=lfs merge=lfs -text

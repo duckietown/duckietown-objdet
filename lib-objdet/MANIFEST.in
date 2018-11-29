@@ -1,0 +1,4 @@
+prune test-data
+graft src/duckietown_objdet/data
+
+

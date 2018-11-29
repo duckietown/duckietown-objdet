@@ -1,0 +1,10 @@
+*.pyc
+*egg-info
+dist
+out-*
+*.json.out
+.coverage
+.coverage.*
+.ipynb_checkpoints
+.compmake_history.txt
+testing-cookies/lib-*

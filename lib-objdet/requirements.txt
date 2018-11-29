@@ -1,0 +1,14 @@
+
+# dependency on branch master18 of duckietown-world
+# -e git://github.com/duckietown/duckietown-world.git@master18d#egg=duckietown-world
+
+# testing
+comptests==1.4.27
+coverage
+coveralls
+bumpversion
+jupyter
+nbconvert
+twine
+
+

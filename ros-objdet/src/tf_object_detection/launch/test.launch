@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<launch>
+  <rosparam command="load" file="$(find tf_object_detection)/config/config.yaml" />
+  <arg name="veh" doc="Name of vehicle. ex: duckiebot"/>
+  <!--include file="$(find raspicam_node)/launch/camerav2_1280x960.launch"-->
+  <!--node name="republish" type="republish" pkg="image_transport" output="screen" args="compressed in:=/raspicam_node/image/ raw out:=/camera/image/raw"-->
+  <node pkg="tf_object_detection" type="tf_object_detection_node.py" name="tf_object_detection_node" output="screen" >
+      <param name="~veh" value="$(arg veh)"/>
+  </node>
+</launch>

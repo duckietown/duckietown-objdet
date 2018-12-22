@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>tf_object_detection</name>
+  <version>0.1.0</version>
+  <description>The tf_object_detection package</description>
+
+  <maintainer email="guzhou@ethz.ch">Duckietown Object Detection Group</maintainer>
+
+  <license>BSD</license>
+
+  <author email="guzhou@ethz.ch">Duckietown Object Detection Group</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>duckietown_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>>std_msgs</build_export_depend>
+  <build_export_depend>duckietown_msgs</build_export_depend>
+
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>duckietown_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+</package>

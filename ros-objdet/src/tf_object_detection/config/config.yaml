@@ -1,0 +1,2 @@
+object_detection:
+  confidence_level: 0.35

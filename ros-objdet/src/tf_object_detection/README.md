@@ -8,11 +8,11 @@ build the ros package inside a ros docker container. After that, run `catkin_mak
 Once you have the node built you can run `./node_launch.sh` at ".../ros-objdet/src" directory.
 ## Node Information
 Topics:
-* `/duckiebot_name/camera/image/raw`:  
-  Subscribes `sensor_msgs/Image` images which are used to run object detection on
+* Subscribed to `/duckiebot_name/camera/image/raw`:  
+  Retrieves `sensor_msgs/Image` type images which are used to run object detection on
 
-* `/duckiebot_name/prediction_images`:  
-  Publishes `sensor_msgs/Image` images which contain bounded boxes and labels of detected objects
+* Publishes on `/duckiebot_name/prediction_images`:  
+  Publishes `sensor_msgs/Image` type images which contain bounded boxes and labels of detected objects
   
 Parameters:
 * `/object_detection/confidence_level`: confidence level, any object with a level below this will not be used. Default value = 0.35 (50%)

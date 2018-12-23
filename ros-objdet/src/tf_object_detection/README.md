@@ -12,7 +12,7 @@ Topics:
   Retrieves `sensor_msgs/Image` type images which are used to run object detection on
 
 * Publishes on `/duckiebot_name/prediction_images`:  
-  Publishes `sensor_msgs/Image` type images which contain bounded boxes and labels of detected objects
+  Publishes `sensor_msgs/Image` type images which contain bounding boxes and labels of detected objects
   
 Parameters:
 * `/object_detection/confidence_level`: confidence level, any object with a level below this will not be used. Default value = 0.35 (50%)

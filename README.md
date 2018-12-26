@@ -243,3 +243,8 @@ Repeat step 4.
 
 [![Vimeo](vimeo_screenshot.png)](https://player.vimeo.com/video/308295993 "DEMO Edge Cases - Click to Watch!")
 
+
+For any questions, please contact any of the team members:
+
+David Oort Alonso (oodavid@student.ethz.ch)
+

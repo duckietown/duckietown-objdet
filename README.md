@@ -33,7 +33,7 @@ Run this:
     
 The output is generated in the folder in `lib-objdet/out-comptests/`.
 
-# AMOD18 To Be Detected {#demo-objdet status=draft}
+# AMOD18 To Be Detected 
 
 This is the demo for object detection using the camera on the Duckiebot. The Duckiebot has been trained to detect duckies, Duckiebots, traffic lights, QR codes, intersection signs, stop signs, and (traffic) signal signs. The joystick demo (or lane following pipeline) is used to navigate the Duckiebot around Duckietown.
 
@@ -61,19 +61,12 @@ Results: The duckiebot is able to detect objects using its camera.
 
 
 
-## Images of expected results {#demo-objdet-expected}
+## Video of expected results 
 
-<div figure-id="fig:objdet2" figure-caption="The expected result is bounding boxes around objects in duckietown.">
-     <img src="objdet2.png" style='width: 30em'/>
-</div>
 
-<div figure-id="fig:objdet1" figure-caption="Another example, notice this one also has the duckiebot.">
-     <img src="objdet1.png" style='width: 30em'/>
-</div>
+[![Vimeo](vimeo_screenshot.png)](https://player.vimeo.com/video/251523150 "The Saviors Teaser - Click to Watch!")
 
-TODO: A high quality video will be uploaded before the deadline. For now these images are self explanatory of what is to be expected.
-
-## Duckietown setup notes {#demo-objdet-Duckietown-setup}
+## Duckietown setup notes 
 
 The Duckietown used for this demo must have the following characteristics.
 
@@ -90,12 +83,12 @@ The Duckietown used for this demo must have the following characteristics.
 
  No cluttering of objects in one place. Allow enough space between each object. An example image is shown below.
 
-## Duckiebot setup notes {#demo-objdet-Duckiebot-setup}
+## Duckiebot setup notes 
 
 
 Put a duckie on top of the duckiebot.(Seriously)
 
-## Pre-flight checklist {#demo-objdet-pre-flight}
+## Pre-flight checklist 
 
 
 
@@ -113,11 +106,15 @@ The pre-flight checklist for this demo are:
 
 **Check**: Put on your smartie pants.
 
-## Demo instructions {#demo-objdet-run}
+## Demo instructions 
 
 
 
 The following steps must be completed in order to run the object detector on your duckiebot.
+
+If you are lazy, here is a video guiding you through the steps:
+
+[![Vimeo](vimeo_screenshot.png)](https://player.vimeo.com/video/251523150 "The Saviors Teaser - Click to Watch!")
 
 
 **Step 1**: When the Duckiebot is powered on, make sure all the containers required are running. In your laptop, run
@@ -183,7 +180,7 @@ This will pop up a new GUI window. Select the `/!duckie_bot]/prediction_images` 
 
 
 
-## Troubleshooting and Tips {#demo-objdet-troubleshooting}
+## Troubleshooting and Tips 
 
 
 Symptom: The Duckiebot is not moving.
@@ -243,7 +240,7 @@ Repeat step 4.
 
 
 
-## Demo failure demonstration {#demo-objdet-failure}
+## Demo failure demonstration (edge cases)
 
-Failure is not an option sorry.
+[![Vimeo](vimeo_screenshot.png)](https://player.vimeo.com/video/251523150 "The Saviors Teaser - Click to Watch!")
 

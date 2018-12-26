@@ -9,6 +9,8 @@
 
 # Object Detection Package - AMOD18 To Be Detected
 
+![Optional Text](../master/readme_pictures/logo.png)
+
 ## Template Preliminaries
 
 

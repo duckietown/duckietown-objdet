@@ -7,13 +7,12 @@
 
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/duckietown_objdet.svg)](https://pypi.python.org/pypi/duckietown_objdet/)
 
+# Object Detection Package - AMOD18 To Be Detected
 
-# objdet
-
-Object detection module challenge for Duckietown
+## Template Preliminaries
 
 
-## Installation from source
+### Installation from source
 
 This is the way to install within a virtual environment created by 
 using `pipenv`:
@@ -25,7 +24,7 @@ using `pipenv`:
     $ python setup.py develop --no-deps
     
    
-## Unit tests
+### Unit tests
 
 Run this:
 
@@ -33,7 +32,7 @@ Run this:
     
 The output is generated in the folder in `lib-objdet/out-comptests/`.
 
-# AMOD18 To Be Detected 
+## Introduction 
 
 This is the demo for object detection using the camera on the Duckiebot. The Duckiebot has been trained to detect duckies, Duckiebots, traffic lights, QR codes, intersection signs, stop signs, and (traffic) signal signs. The joystick demo (or lane following pipeline) is used to navigate the Duckiebot around Duckietown.
 

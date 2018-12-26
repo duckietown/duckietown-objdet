@@ -38,7 +38,7 @@ This is the demo for object detection using the camera on the Duckiebot. The Duc
 
 
 
-Our codebase can be found at the following repository on GitHub: https://github.com/duckietown/duckietown-objdet. This repository contains all the files needed to train the object detector and containerize the inference model that was used in the DEMO.
+This repository contains all the files needed to train the object detector and containerize the inference model that was used in the DEMO.
 
 
 <div class='requirements' markdown="1">

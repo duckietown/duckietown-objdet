@@ -9,6 +9,8 @@
 
 # Object Detection Package - AMOD18 To Be Detected
 
+![Optional Text](../master/readme_pictures/logo.png)
+
 ## Template Preliminaries
 
 
@@ -63,7 +65,7 @@ Results: The duckiebot is able to detect objects using its camera.
 ## Video of expected results 
 
 
-[![Vimeo](vimeo_screenshot.png)](https://player.vimeo.com/video/308298528  "DEMO results - Click to Watch!")
+[![Vimeo](readme_pictures/results_caption.png)](https://player.vimeo.com/video/308298528  "DEMO results - Click to Watch!")
 
 ## Duckietown setup notes 
 
@@ -113,7 +115,7 @@ The following steps must be completed in order to run the object detector on you
 
 If you are lazy, here is a video guiding you through the steps:
 
-[![Vimeo](vimeo_screenshot_instructions.png)](https://player.vimeo.com/video/308305157  "DEMO tutorial - Click to Watch!")
+[![Vimeo](readme_pictures/tutorial_caption.png)](https://player.vimeo.com/video/308305157  "DEMO tutorial - Click to Watch!")
 
 
 **Step 1**: When the Duckiebot is powered on, make sure all the containers required are running. In your laptop, run
@@ -241,7 +243,7 @@ Repeat step 4.
 
 ## Demo failure demonstration (edge cases)
 
-[![Vimeo](vimeo_screenshot.png)](https://player.vimeo.com/video/308295993 "DEMO Edge Cases - Click to Watch!")
+[![Vimeo](readme_pictures/Edgecases_caption.png)](https://player.vimeo.com/video/308295993 "DEMO Edge Cases - Click to Watch!")
 
 
 For any questions, please contact any of the team members:

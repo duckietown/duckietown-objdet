@@ -60,7 +60,7 @@ The duckiebot runs the ros-picam container, which publishes the image stream fro
 |:---------------:|:-------------------------:|:--------------------------------------------------------------------------------------------------:|
 |     Approach    | Manual feature extraction |                                         Deep learning (CNN)                                        |
 |  Label classes |       Duckies, cones      | Duckies, duckiebots, traffic lights, QR codes, stop signs, intersection signs, traffic light signs |
-|    Conditions   |    Bright, uncluttered    |              Robust against lighting brightness  and colour and cluttered environment              |
+|    Conditions   |    Bright, uncluttered    |              Robust against lighting (brightness and colour) changes and cluttered environment              |
 |       IoU       |            low            |                                                high                                                |
 |      Speed      |            fast           |                                                slow                                                |
 

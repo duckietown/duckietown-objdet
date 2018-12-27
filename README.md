@@ -309,7 +309,7 @@ If you feel like you can create a better object detector than us, we have got so
 
 ## Future Work
 
-In conclusion, we have trained an object detector using a Deep Learning approach ...
+Naturally, after less than 6 weeks of development time, there are many aspects of our work that we would like to revise/improve upon.
 
 * Better training data:
     * Better labelling
@@ -324,4 +324,7 @@ In conclusion, we have trained an object detector using a Deep Learning approach
 For any questions, please contact any of the team members:
 
 David Oort Alonso (oodavid@student.ethz.ch)
+Mian Akbar Shah (shahak@student.ethz.ch)
+Yannick Berdou (berdouy@ethz.ch)
+Guoxiang Zhou
 

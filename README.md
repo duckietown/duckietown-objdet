@@ -38,7 +38,7 @@ The output is generated in the folder in `lib-objdet/out-comptests/`.
 
 It is paramount for the health and safety of the citizens of duckietown that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, an object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the monocular camera only. 
 
-A high-level overview of how the detection pipeline works can be seen in *Figure 1* below. Because the RaspBerry Pi is by no means powerful enough to run the detection pipeline, it has to be run on a laptop. 
+A high-level overview of how the detection pipeline works can be seen in *Figure 1* below. Because the RaspBerry Pi (RPI) is by no means powerful enough to run the detection pipeline, it has to be run on a laptop. 
 
 ![](../master/readme_pictures/logical_archi_highlvl.png)
 *Figure 1: High-level architecture of the object detection pipeline, when run on a PC.*
@@ -53,13 +53,26 @@ The duckiebot runs the ros-picam container, which publishes the image stream fro
 
 ### Definition of objectives & contribution
 
+![](../master/readme_pictures/comparison.png)
+*Figure 3: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
+|                 |      Saviours (2017)      |                                TBD (2018)                                |
+|:---------------:|:-------------------------:|:------------------------------------------------------------------------:|
+|     Approach    | Manual feature extraction |                            Deep learning (CNN)                           |
+| # label classes |             2             |                                     7                                    |
+|    Conditions   |    Bright, uncluttered    | Robust against lighting brightness  and colour and cluttered environment |
+|       IoU       |            low            |                                   high                                   |
+|      Speed      |            fast           |                                   slow                                   |
 
 ### Step-by-step
 
+![](../master/readme_pictures/Approach.png)
+*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
 ## Performance
 
+![](../master/readme_pictures/performance.png)
+*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
 ## DEMO 
 
@@ -100,21 +113,24 @@ The Duckietown used for this demo must have the following characteristics.
 
  * Several duckies placed on the road and at the side of the road.
 
- * Intersection sign, Stop sign and Signal sign.
+ * Intersection sign, Stop sign and Signal (traffic light) sign.
 
  * QR codes on the ground and below the signs mentioned above.
 
  * Traffic lights at intersections
 
  * Duckiebots on the road.
+ 
+ * Put a duckie on top of the duckiebot.(Seriously)
 
 
- No cluttering of objects in one place. Allow enough space between each object. An example image is shown below.
+ No cluttering of objects in one place. Allow enough space between each object. The recommended testing ground is the autolab at ML F44 or similar
+ 
 
-## Duckiebot setup notes 
+![](../master/readme_pictures/autolab.jpeg)
+*Figure 4: recommended duckietown*
 
 
-Put a duckie on top of the duckiebot.(Seriously)
 
 ## Pre-flight checklist 
 
@@ -272,7 +288,22 @@ Repeat step 4.
 
 ## AIDO Challenge
 
+![](../master/readme_pictures/AIDO.png)
+*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
+
 ## Future Work
+
+In conclusion, we have trained an object detector using a Deep Learning approach ...
+
+* Better training data:
+    ** Better labelling
+    ** More training images
+    ** Images of empty road (no labels) to avoid false positives (as seen in the Edge Case video)
+* Detection running on RPI with Movidius stick.
+* Use temporal features - possibly using odometry information
+* Improve speed (light network)
+
+
 
 For any questions, please contact any of the team members:
 

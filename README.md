@@ -50,8 +50,13 @@ The duckiebot runs the ros-picam container, which publishes the image stream fro
 
 ## Approach
 
+In this section we will elaborate on the steps taken by the team from the start of the project (Nov 12th 2018) to the DEMO that wrapped it up on Dec 20th 2018.
 
 ### Definition of objectives & contribution
+
+The first thing to do at the start of any research project is to look at what has been done, identify the gaps where progress can be made and translate this notion of progress into tangible goals and milestones.
+
+This was the first year in the history of the AMOD course that a project was assigned to object detection and pattern recognition. However, detecting objects in some shape or form was of course not new in Duckietown; perception being arguably the most important features of an autonomous robot. Out of all past projects, the one that we could identify ourselves best with was "Saviours". Their work focussed on obstacle avoidance rather than just detection. Therefore, one of the main requirements for their detection pipeline was speed. Hence why they probably opted for an approach where they would detect objects using manually tailored features (such as image and colour transforms).  
 
 ![](../master/readme_pictures/comparison.png)
 *Figure 3: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
@@ -121,7 +126,7 @@ The Duckietown used for this demo must have the following characteristics.
 
  * Duckiebots on the road.
  
- * The possibility of changing lighting conditions (brightness and colour). In the autolab of ETH, this can be done through the Philipps Hue app.
+ * The possibility of changing lighting conditions (brightness and colour). In the autolab of ETH, this can be done through the Philips Hue app.
  
  * Put a duckie on top of the duckiebot.(Seriously)
 
@@ -289,6 +294,8 @@ Repeat step 4.
 
 
 ## AIDO Challenge
+
+If you feel like you can create a better object detector than us, we have got something for you!
 
 ![](../master/readme_pictures/AIDO.png)
 *Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*

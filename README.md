@@ -36,13 +36,17 @@ The output is generated in the folder in `lib-objdet/out-comptests/`.
 
 ## Introduction
 
-It is detrimental for the health and safety of the citizens of duckietown, that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, a object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the monocular camera only. 
+It is paramount for the health and safety of the citizens of duckietown that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, an object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the monocular camera only. 
 
-A brief overview of how the detection pipeline works can be seen in *Figure 1* below. Because the RaspBerry Pi is by no means powerful enough to run the detection pipeline, it has to be run on a laptop.The duckiebot runs the ros-picam container, which publishes the image stream from the duckiebots camera to the detector node on the laptop. The detector node then 
-
+A high-level overview of how the detection pipeline works can be seen in *Figure 1* below. Because the RaspBerry Pi is by no means powerful enough to run the detection pipeline, it has to be run on a laptop. 
 
 ![](../master/readme_pictures/logical_archi_highlvl.png)
 *Figure 1: High-level architecture of the object detection pipeline, when run on a PC.*
+
+The duckiebot runs the ros-picam container, which publishes the image stream from the duckiebot's camera to the detector node on the laptop. The detector node then does its predictions, draws bounding boxes with the appropriate labels and confidence levels and publishes a new stream of images to another topic which can then be visualized in real time through `rqt_image_view`, or a similar tool. *Figure 2* shows the `rqt_graph` where the ROS nodes, topics and their interaction can be visualized when the detection is being run on a stream of images coming from the camera of yanberBot.
+
+![](../master/readme_pictures/rqt_graph.png)
+*Figure 2: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
 ## Approach
 

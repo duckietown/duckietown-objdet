@@ -75,8 +75,11 @@ Our research goals were targeted at finding another solution along the "Pareto B
 
 ### Step-by-step
 
+The next question to ask is: "how did we obtain the above results?". The figure below gives a rough idea.
 ![](../master/readme_pictures/Approach.png)
-*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
+*Figure 4: the major milestones of the project*
+
+
 
 ## Performance
 

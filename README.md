@@ -44,6 +44,17 @@ A brief overview of how the detection pipeline works can be seen in *Figure 1* b
 ![](../master/readme_pictures/logical_archi_highlvl.png)
 *Figure 1: High-level architecture of the object detection pipeline, when run on a PC.*
 
+## Approach
+
+
+### Definition of objectives & contribution
+
+
+
+### Step-by-step
+
+
+
 
 
 ## DEMO 
@@ -254,6 +265,10 @@ Repeat step 4.
 
 [![Vimeo](readme_pictures/Edgecases_caption.png)](https://player.vimeo.com/video/308295993 "DEMO Edge Cases - Click to Watch!")
 
+
+## AIDO Challenge
+
+## Future Work
 
 For any questions, please contact any of the team members:
 

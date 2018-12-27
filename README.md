@@ -86,7 +86,7 @@ The next question to ask is: "how did we obtain the above results?". *Figure 4* 
 *Figure 5* shows two graphs extracted from Tensorboard after training the two object detection models. On the y-axis, the mean average precision (mAP) is plotted while on the x-axis are the number of learning steps of the CNN optimizer. To calculate mAP, a threshold of IoU=0.5 was set, meaning that an object was classified correctly with respect to the ground truth iff the IoU of the bounding boxes was above 0.5 and the labels matched.
 
 ![](../master/readme_pictures/performance.png)
-*Figure 5: Performance of the two models trained and presented in the DEMO: rfcn_resnet101 which on a CPU had a speed of about 1.2 FPS and ssdlite_mobilenet_v2 which on a CPU performed at 13.5 FPS *
+*Figure 5: Performance of the two models trained and presented in the DEMO (see video of expected results): rfcn_resnet101 which on a CPU had a speed of about 1.2 FPS and ssdlite_mobilenet_v2 which on a CPU performed at 13.5 FPS*
 
 ## DEMO 
 

@@ -36,9 +36,13 @@ The output is generated in the folder in `lib-objdet/out-comptests/`.
 
 ## Introduction
 
-It is detrimental for the health and safety of the citizens of duckietown, that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, a object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the RP camera only. 
-A brief overview of how the detection pipeline works can be seen in figure X below. Because the RaspBerry Pi is by no means powerful enough to run the detection pipeline, it has to be run on a laptop.The duckiebot runs the ros-picam container, which publishes the image stream from the duckiebots camera to the detector node on the laptop. The detector node then 
+It is detrimental for the health and safety of the citizens of duckietown, that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, a object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the monocular camera only. 
 
+A brief overview of how the detection pipeline works can be seen in *Figure 1* below. Because the RaspBerry Pi is by no means powerful enough to run the detection pipeline, it has to be run on a laptop.The duckiebot runs the ros-picam container, which publishes the image stream from the duckiebots camera to the detector node on the laptop. The detector node then 
+
+
+![](../master/readme_pictures/logical_archi_highlvl.png)
+*Figure 1: High-level architecture of the object detection pipeline, when run on a PC.*
 
 
 
@@ -135,7 +139,7 @@ to check whether the right containers are running or not. You can also check by 
 Note: If the required containers are running then skip to Step 4.
 
 ![](../master/readme_pictures/Containers.png)
-*Figure 1: The containers that are required for this demo.*
+*Figure 2: The containers that are required for this demo.*
 
 **Step 2 (Optional)**: Launch the rospicam container so that we can capture images from the camera of Duckiebot.
 

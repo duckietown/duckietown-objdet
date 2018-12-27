@@ -45,19 +45,19 @@ This repository contains all the files needed to train the object detector and c
 
 <div class='requirements' markdown="1">
 
-Requires: Initialized Duckiebots.
+* Requires: Initialized Duckiebots.
 
-Requires: wheel calibration completed.[Wheel Calibration](#wheel-calibration)
+* Requires: wheel calibration completed.[Wheel Calibration](#wheel-calibration)
 
-Requires: Camera calibration completed.[Camera calibration](#camera-calib)
+* Requires: Camera calibration completed.[Camera calibration](#camera-calib)
 
-Requires: Joystick demo completed.[Joystick demo](#rc-control)
+* Requires: Joystick demo completed.[Joystick demo](#rc-control)
 
-Requires: Duckietown with all classified objects.
+* Requires: Duckietown with all classified objects.
 
-Requires: Docker is installed on your computer.
+* Requires: Docker is installed on your computer.
 
-Results: The duckiebot is able to detect objects using its camera.
+* Results: The duckiebot is able to detect objects using its camera.
 </div>
 
 
@@ -95,17 +95,17 @@ Put a duckie on top of the duckiebot.(Seriously)
 
 The pre-flight checklist for this demo are:
 
-**Check**: Battery level is sufficient.
+* **Check**: Battery level is sufficient.
 
-**Check**: Docker Installed.
+* **Check**: Docker Installed.
 
-**Check**: Joystick container is running.
+* **Check**: Joystick container is running.
 
-**Check**: Rospicam container is running.
+* **Check**: Rospicam container is running.
 
-**Check**: Base container is running.
+* **Check**: Base container is running.
 
-**Check**: Put on your smartie pants.
+* **Check**: Put on your smartie pants.
 
 ## Demo instructions 
 

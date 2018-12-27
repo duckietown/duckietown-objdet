@@ -73,7 +73,7 @@ Our research goals were targeted at finding another solution along the "Pareto B
 |       IoU       |            low            |                                                high                                                |
 |      Speed      |            >3.3 Hz on RPI           |                                                <13.5 Hz on CPU                                                |
 
-### Step-by-step
+### Step by step
 
 The next question to ask is: "how did we obtain the above results?". *Figure 4* gives a quick overview.
 ![](../master/readme_pictures/Approach.png)

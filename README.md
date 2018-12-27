@@ -324,7 +324,10 @@ Naturally, after less than 6 weeks of development time, there are many aspects o
 For any questions, please contact any of the team members:
 
 David Oort Alonso (oodavid@student.ethz.ch)
+
 Mian Akbar Shah (shahak@student.ethz.ch)
+
 Yannick Berdou (berdouy@ethz.ch)
+
 Guoxiang Zhou
 

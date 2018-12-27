@@ -144,7 +144,7 @@ The Duckietown used for this demo must have the following characteristics.
  
 
 ![](../master/readme_pictures/autolab.jpg)
-*Figure 4: recommended duckietown for running the DEMO*
+*Figure 6: recommended duckietown for running the DEMO*
 
 
 
@@ -186,7 +186,7 @@ to check whether the right containers are running or not. You can also check by 
 Note: If the required containers are running then skip to Step 4.
 
 ![](../master/readme_pictures/Containers.png)
-*Figure 2: The containers that are required for this demo.*
+*Figure 7: The containers that are required for this demo.*
 
 **Step 2 (Optional)**: Launch the rospicam container so that we can capture images from the camera of Duckiebot.
 
@@ -302,24 +302,33 @@ Repeat step 4.
 [![Vimeo](readme_pictures/Edgecases_caption.png)](https://player.vimeo.com/video/308295993 "DEMO Edge Cases - Click to Watch!")
 
 
-## AIDO Challenge
+## AIDO Challenge (beta version!)
 
-If you feel like you can create a better object detector than us, we have got something for you!
+If after watching our object detector in action you cannot wait to build your own, you might want to stick around...
+
+Aside from developing a CNN-based object detector, we have developed a framework that allows you to test the performance of your own object detector. This is analogous to the framework that CircleCi provides for unit tests, except this is targeted at *performance* tests.
+
+We have created an additional (private) repository that contains testing images + labels in addition to an evaluator which compares labels it receives from an inference model with the ground truth. This results in a score which is displayed on the server. In the future, on of the metrics that the evaluator should be able to display is the prediction time & RAM usage which are crucial in the context of object detection in Duckietown.
+
+As the user, once the framework depicted in *Figure 8* is functional, you have to insert your submission in a docker 
 
 ![](../master/readme_pictures/AIDO.png)
-*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
+*Figure 8: diagram of the AIDO objdet challenge module*
+
+Unfortunately we have run into many issues while setting up a local server to test the interaction between submission and evaluator containers, which means little to no testing has been done on whether this pipeline works as expected.
 
 ## Future Work
 
-Naturally, after less than 6 weeks of development time, there are many aspects of our work that we would like to revise/improve upon.
+Naturally, after less than 6 weeks of development time, there are many aspects of our work that we would like to revise/improve upon. Here is a non-exhaustive list:
 
 * Better training data:
-    * Better labelling
-    * More training images
+    * Better labelling (the quality of labelling fluctuated a lot, and currently our test set is really unreliable)
+    * More training images 
     * Images of empty road (no labels) to avoid false positives (as seen in the Edge Case video)
-* Detection running on RPI with Movidius stick.
+* Detection running on RPI with Movidius stick
 * Use temporal features - possibly using odometry information
 * Improve speed (light network)
+* Test the AIDO challenge module and define an official Object Detection challenge for AIDO 2
 
 
 

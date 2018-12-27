@@ -127,7 +127,7 @@ The Duckietown used for this demo must have the following characteristics.
  No cluttering of objects in one place. Allow enough space between each object. The recommended testing ground is the autolab at ML F44 or similar
  
 
-![](../master/readme_pictures/autolab.jpeg)
+![](../master/readme_pictures/autolab.jpg)
 *Figure 4: recommended duckietown*
 
 
@@ -296,9 +296,9 @@ Repeat step 4.
 In conclusion, we have trained an object detector using a Deep Learning approach ...
 
 * Better training data:
-    ** Better labelling
-    ** More training images
-    ** Images of empty road (no labels) to avoid false positives (as seen in the Edge Case video)
+    * Better labelling
+    * More training images
+    * Images of empty road (no labels) to avoid false positives (as seen in the Edge Case video)
 * Detection running on RPI with Movidius stick.
 * Use temporal features - possibly using odometry information
 * Improve speed (light network)

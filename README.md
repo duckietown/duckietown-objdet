@@ -126,8 +126,8 @@ to check whether the right containers are running or not. You can also check by 
 
 Note: If the required containers are running then skip to Step 4.
 
-
-<figure><img src='../master/readme_pictures/Containers.png'><figcaption>The discourse logo</figcaption></figure>
+![](../master/readme_pictures/Containers.png)
+*Figure 1: The containers that are required for this demo.*
 
 **Step 2 (Optional)**: Launch the rospicam container so that we can capture images from the camera of Duckiebot.
 

@@ -60,7 +60,7 @@ This was the first year in the history of the AMOD course that a project was ass
 
 Out of all past projects, the one that we could identify ourselves best with was "Saviours". Their work focussed on obstacle avoidance rather than just detection. Therefore, one of the main requirements for their detection pipeline was speed. Hence why they opted for an approach where they would detect objects using manually extracted features (such as image and colour transforms).  Speed, of course, does not come without sacrificing performance. Extracting features using heuristics can be very efficient but is incredibly hard for a large class of objects under varying lighting conditions and environment. 
 
-
+Our research goals
 
 ![](../master/readme_pictures/comparison.png)
 *Figure 3: comparison between predictions made by the Saviours' detection algorithm (leftmost image) and our current heavy inference model (the other two images). The Saviours used the Inverse Perspective Mapping Algorithm along with a transformation of the images to the HSV color space to extract features manually while our approach relies fully on a Convolutional Neural Network which is trained on 1800 example images*
@@ -71,7 +71,7 @@ Out of all past projects, the one that we could identify ourselves best with was
 |  Label classes |       Duckies, cones      | Duckies, duckiebots, traffic lights, QR codes, stop signs, intersection signs, traffic light signs |
 |    Conditions   |    Bright, uncluttered    |              Robust against lighting (brightness and colour) changes and cluttered environment              |
 |       IoU       |            low            |                                                high                                                |
-|      Speed      |            fast           |                                                slow                                                |
+|      Speed      |            >3.3 Hz on RPI           |                                                <13.5 Hz on CPU                                                |
 
 ### Step-by-step
 

@@ -121,14 +121,16 @@ The Duckietown used for this demo must have the following characteristics.
 
  * Duckiebots on the road.
  
+ * The possibility of changing lighting conditions (brightness and colour). In the autolab of ETH, this can be done through the Philipps Hue app.
+ 
  * Put a duckie on top of the duckiebot.(Seriously)
 
 
- No cluttering of objects in one place. Allow enough space between each object. The recommended testing ground is the autolab at ML F44 or similar
+ No cluttering of objects in one place. Allow enough space between each object. The recommended testing ground is the autolab at ML F44 (shown below) or similar.
  
 
 ![](../master/readme_pictures/autolab.jpg)
-*Figure 4: recommended duckietown*
+*Figure 4: recommended duckietown for running the DEMO*
 
 
 

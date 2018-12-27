@@ -56,10 +56,14 @@ In this section we will elaborate on the steps taken by the team from the start 
 
 The first thing to do at the start of any research project is to look at what has been done, identify the gaps where progress can be made and translate this notion of progress into tangible goals and milestones.
 
-This was the first year in the history of the AMOD course that a project was assigned to object detection and pattern recognition. However, detecting objects in some shape or form was of course not new in Duckietown; perception being arguably the most important features of an autonomous robot. Out of all past projects, the one that we could identify ourselves best with was "Saviours". Their work focussed on obstacle avoidance rather than just detection. Therefore, one of the main requirements for their detection pipeline was speed. Hence why they probably opted for an approach where they would detect objects using manually tailored features (such as image and colour transforms).  
+This was the first year in the history of the AMOD course that a project was assigned to object detection and pattern recognition. However, detecting objects in some shape or form was of course not new in Duckietown; perception being arguably the most important features of an autonomous robot.
+
+Out of all past projects, the one that we could identify ourselves best with was "Saviours". Their work focussed on obstacle avoidance rather than just detection. Therefore, one of the main requirements for their detection pipeline was speed. Hence why they probably opted for an approach where they would detect objects using manually extracted features (such as image and colour transforms).  Speed, of course, does not come without sacrificing performance. Extracting features using heuristics can be very efficient but is incredibly hard for a large class of objects under varying lighting conditions and environment. 
+
+
 
 ![](../master/readme_pictures/comparison.png)
-*Figure 3: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
+*Figure 3: comparison between inference model predictions by the Saviours (leftmost image) and our current heavy model (the other two images). The Saviours used the Inverse Perspective Mapping Algorithm along with a transformation of the images to the HSV color space to extract features manually while our approach relies fully on a Convolutional Neural Network which is trained on 1800 example images*
 
 |                 |      Saviours (2017)      |                                             TBD (2018)                                             |
 |:---------------:|:-------------------------:|:--------------------------------------------------------------------------------------------------:|

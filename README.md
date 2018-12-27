@@ -56,13 +56,13 @@ The duckiebot runs the ros-picam container, which publishes the image stream fro
 ![](../master/readme_pictures/comparison.png)
 *Figure 3: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
-|                 |      Saviours (2017)      |                                TBD (2018)                                |
-|:---------------:|:-------------------------:|:------------------------------------------------------------------------:|
-|     Approach    | Manual feature extraction |                            Deep learning (CNN)                           |
-| # label classes |             2             |                                     7                                    |
-|    Conditions   |    Bright, uncluttered    | Robust against lighting brightness  and colour and cluttered environment |
-|       IoU       |            low            |                                   high                                   |
-|      Speed      |            fast           |                                   slow                                   |
+|                 |      Saviours (2017)      |                                             TBD (2018)                                             |
+|:---------------:|:-------------------------:|:--------------------------------------------------------------------------------------------------:|
+|     Approach    | Manual feature extraction |                                         Deep learning (CNN)                                        |
+| # label classes |       Duckies, cones      | Duckies, duckiebots, traffic lights, QR codes, stop signs, intersection signs, traffic light signs |
+|    Conditions   |    Bright, uncluttered    |              Robust against lighting brightness  and colour and cluttered environment              |
+|       IoU       |            low            |                                                high                                                |
+|      Speed      |            fast           |                                                slow                                                |
 
 ### Step-by-step
 

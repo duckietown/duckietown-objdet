@@ -174,7 +174,7 @@ The following steps must be completed in order to run the object detector on you
 
 If you are lazy, here is a video guiding you through the steps:
 
-[![Vimeo](readme_pictures/tutorial_caption.png)](https://player.vimeo.com/video/308305157  "DEMO tutorial - Click to Watch!")
+[![Vimeo](readme_pictures/tutorial_caption.png)](https://player.vimeo.com/video/308461574 "DEMO tutorial - Click to Watch!")
 
 
 **Step 1**: When the Duckiebot is powered on, make sure all the containers required are running. In your laptop, run

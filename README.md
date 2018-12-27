@@ -36,26 +36,43 @@ The output is generated in the folder in `lib-objdet/out-comptests/`.
 
 ## Introduction
 
-It is detrimental for the health and safety of the citizens of duckietown, that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, a object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the monocular camera only. 
+It is paramount for the health and safety of the citizens of duckietown that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, an object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the monocular camera only. 
 
-A brief overview of how the detection pipeline works can be seen in *Figure 1* below. Because the RaspBerry Pi is by no means powerful enough to run the detection pipeline, it has to be run on a laptop.The duckiebot runs the ros-picam container, which publishes the image stream from the duckiebots camera to the detector node on the laptop. The detector node then 
-
+A high-level overview of how the detection pipeline works can be seen in *Figure 1* below. Because the RaspBerry Pi (RPI) is by no means powerful enough to run the detection pipeline, it has to be run on a laptop. 
 
 ![](../master/readme_pictures/logical_archi_highlvl.png)
 *Figure 1: High-level architecture of the object detection pipeline, when run on a PC.*
+
+The duckiebot runs the ros-picam container, which publishes the image stream from the duckiebot's camera to the detector node on the laptop. The detector node then does its predictions, draws bounding boxes with the appropriate labels and confidence levels and publishes a new stream of images to another topic which can then be visualized in real time through `rqt_image_view`, or a similar tool. *Figure 2* shows the `rqt_graph` where the ROS nodes, topics and their interaction can be visualized when the detection is being run on a stream of images coming from the camera of yanberBot.
+
+![](../master/readme_pictures/rqt_graph.png)
+*Figure 2: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
 ## Approach
 
 
 ### Definition of objectives & contribution
 
+![](../master/readme_pictures/comparison.png)
+*Figure 3: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
+|                 |      Saviours (2017)      |                                             TBD (2018)                                             |
+|:---------------:|:-------------------------:|:--------------------------------------------------------------------------------------------------:|
+|     Approach    | Manual feature extraction |                                         Deep learning (CNN)                                        |
+|  Label classes |       Duckies, cones      | Duckies, duckiebots, traffic lights, QR codes, stop signs, intersection signs, traffic light signs |
+|    Conditions   |    Bright, uncluttered    |              Robust against lighting (brightness and colour) changes and cluttered environment              |
+|       IoU       |            low            |                                                high                                                |
+|      Speed      |            fast           |                                                slow                                                |
 
 ### Step-by-step
 
+![](../master/readme_pictures/Approach.png)
+*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
 ## Performance
 
+![](../master/readme_pictures/performance.png)
+*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
 
 ## DEMO 
 
@@ -96,21 +113,26 @@ The Duckietown used for this demo must have the following characteristics.
 
  * Several duckies placed on the road and at the side of the road.
 
- * Intersection sign, Stop sign and Signal sign.
+ * Intersection sign, Stop sign and Signal (traffic light) sign.
 
  * QR codes on the ground and below the signs mentioned above.
 
  * Traffic lights at intersections
 
  * Duckiebots on the road.
+ 
+ * The possibility of changing lighting conditions (brightness and colour). In the autolab of ETH, this can be done through the Philipps Hue app.
+ 
+ * Put a duckie on top of the duckiebot.(Seriously)
 
 
- No cluttering of objects in one place. Allow enough space between each object. An example image is shown below.
+ No cluttering of objects in one place. Allow enough space between each object. The recommended testing ground is the autolab at ML F44 (shown below) or similar.
+ 
 
-## Duckiebot setup notes 
+![](../master/readme_pictures/autolab.jpg)
+*Figure 4: recommended duckietown for running the DEMO*
 
 
-Put a duckie on top of the duckiebot.(Seriously)
 
 ## Pre-flight checklist 
 
@@ -268,7 +290,22 @@ Repeat step 4.
 
 ## AIDO Challenge
 
+![](../master/readme_pictures/AIDO.png)
+*Figure 4: rqt_graph snapshot showing the nomenclature and interaction of ROS nodes and topics active during our DEMO*
+
 ## Future Work
+
+In conclusion, we have trained an object detector using a Deep Learning approach ...
+
+* Better training data:
+    * Better labelling
+    * More training images
+    * Images of empty road (no labels) to avoid false positives (as seen in the Edge Case video)
+* Detection running on RPI with Movidius stick.
+* Use temporal features - possibly using odometry information
+* Improve speed (light network)
+
+
 
 For any questions, please contact any of the team members:
 

@@ -127,11 +127,7 @@ to check whether the right containers are running or not. You can also check by 
 Note: If the required containers are running then skip to Step 4.
 
 
-<div figure-id="fig:containers" figure-caption="Another example, notice this one also has the duckiebot.">
-     <img src="../master/readme_pictures/Containers.png" style='width: 30em'/>
-</div>
-
-
+<figure><img src='../master/readme_pictures/Containers.png'><figcaption>The discourse logo</figcaption></figure>
 
 **Step 2 (Optional)**: Launch the rospicam container so that we can capture images from the camera of Duckiebot.
 

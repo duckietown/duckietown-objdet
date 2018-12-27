@@ -34,7 +34,15 @@ Run this:
     
 The output is generated in the folder in `lib-objdet/out-comptests/`.
 
-## Introduction 
+## Introduction
+
+It is detrimental for the health and safety of the citizens of duckietown, that duckiebots navigate safely in the city. Therefore, the duckiebots must be able to detect and correctly identify road users (duckies and duckiebots) as well as road signals (traffic signs, traffic lights, etc.). To achieve this goal, a object detection pipeline was created based on a convolutional neural network, which detects the aforementioned objects using the RP camera only. 
+A brief overview of how the detection pipeline works can be seen in figure X below. Because the RaspBerry Pi is by no means powerful enough to run the detection pipeline, it has to be run on a laptop.The duckiebot runs the ros-picam container, which publishes the image stream from the duckiebots camera to the detector node on the laptop. The detector node then 
+
+
+
+
+## DEMO 
 
 This is the demo for object detection using the camera on the Duckiebot. The Duckiebot has been trained to detect duckies, Duckiebots, traffic lights, QR codes, intersection signs, stop signs, and (traffic) signal signs. The joystick demo (or lane following pipeline) is used to navigate the Duckiebot around Duckietown.
 
@@ -181,51 +189,51 @@ This will pop up a new GUI window. Select the `/!duckie_bot]/prediction_images` 
 ## Troubleshooting and Tips 
 
 
-Symptom: The Duckiebot is not moving.
+>Symptom: The Duckiebot is not moving.
 
 
-Resolution: Make sure that the joystick container is running. Note that the command for launching the joystick was changed to:
+**Resolution**: Make sure that the joystick container is running. Note that the command for launching the joystick was changed to:
 
     laptop $ dts duckiebot keyboard_control ![duckie_bot]
 
 
 
-Symptom: No images recorded.
+>Symptom: No images recorded.
 
 
-Resolution: Make sure that the rospicam container is running.
+**Resolution**: Make sure that the rospicam container is running.
 
 
 
-Symptom: The ros nodes cannot communicate with each other.
+>Symptom: The ros nodes cannot communicate with each other.
 
 
-Resolution: If you are using docker on Mac OSX, there seems to be an issue with the network of docker containers. We recommend to use docker on Ubuntu 16.04. We have tested it and everything is fine.
+**Resolution**: If you are using docker on Mac OSX, there seems to be an issue with the network of docker containers. We recommend to use docker on Ubuntu 16.04. We have tested it and everything is fine.
 (Insert Image).
 
 
 
-Symptom: The storage in the raspberry PI has reached its limit.
+>Symptom: The storage in the raspberry PI has reached its limit.
 
 
-Resolution: Run `docker -H ![duckie_bot].local images` to whether dangling images exist and run `docker -H ![duckie_bot].local  rmi --force image_ID` to remove them.
+**Resolution**: Run `docker -H ![duckie_bot].local images` to whether dangling images exist and run `docker -H ![duckie_bot].local  rmi --force image_ID` to remove them.
 
 
 
-Symptom: ERROR: unable to contact ROS master at [http://![Duckiebot_name].local:11311/]
+>Symptom: ERROR: unable to contact ROS master at [http://![Duckiebot_name].local:11311/]
 The traceback for the exception was written to the log file.
 
 
-Resolution: make sure your laptop and Duckiebot are on the same network.
+**Resolution**: make sure your laptop and Duckiebot are on the same network.
 
 
 
-Symptom: docker: Error response from daemon: Conflict. The container name "/object_detection" is already in use by container.
+>Symptom: docker: Error response from daemon: Conflict. The container name "/object_detection" is already in use by container.
 
 
-Resolution: Run the command  
+**Resolution**: Run the command  
 
-      laptop $ docker container rm --force object_detection.
+    laptop $ docker container rm --force object_detection.
 
 Repeat step 4.
 

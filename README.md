@@ -93,6 +93,8 @@ The CNN is then optimized to provide the desired accuracy and speed. The Duckieb
 ![](../master/readme_pictures/performance.png)
 *Figure 5: Performance of the two models trained and presented in the DEMO (see video of expected results): rfcn_resnet101 which on a CPU had a speed of about 1.2 FPS and ssdlite_mobilenet_v2 which on a CPU performed at 13.5 FPS*
 
+The quality of the labelled images we got back from theHive (after a bit more than a week) left something to be desired. We therefore manually divided the 3200 images into "good", "decent" and "bad" folders. The "good" folder contained 1824 images which we used for training. The "decent" folder contained 350 average images which were used for evaluation of the model. The rest of images (in the "bad" folder) have been stored in a test set. This test set is to be used for AIDO 2 submissions, to create public and private (to avoid overfitting) scores on the server. However, we recommend to relabel these images before being used for this purpose.
+
 ## DEMO 
 
 This is the demo for object detection using the camera on the Duckiebot. The Duckiebot has been trained to detect duckies, Duckiebots, traffic lights, QR codes, intersection signs, stop signs, and (traffic) signal signs. The joystick demo (or lane following pipeline) is used to navigate the Duckiebot around Duckietown.

@@ -345,5 +345,5 @@ Mian Akbar Shah (shahak@student.ethz.ch)
 
 Yannick Berdou (berdouy@ethz.ch)
 
-Guoxiang Zhou
+Guoxiang Zhou (guzhou@ethz.ch)
 

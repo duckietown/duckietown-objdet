@@ -73,9 +73,14 @@ Our research goals were targeted at finding another solution along the "Pareto B
 |       IoU       |            low            |                                                high                                                |
 |      Speed      |            >3.3 Hz on RPI           |                                                <13.5 Hz on CPU                                                |
 
-### Step by step
+### Building your own object detector
 
-The next question to ask is: "how did we obtain the above results?". *Figure 4* gives a quick overview.
+In this section, we briefly highlight the steps required to build your own object detector. A collection of images known as data set is required to train the convolutional neural network. The images were collected from the duckietown in the Auto Lab with different lighting conditions in order to train our model to be robust against lighting.
+	
+The data was labeled using an external company (thehive.ai). It is recommended to provide detailed instructions on how you want your images labeled and make good qualifier/honey pot tasks in order to make sure the labeling is done effectively. The labeled images are then used to train the convolutional neural network. The tensorflow object detection API provides an open source framework which makes it easy to deploy object detecton models.  
+	
+The CNN is then optimized to provide the desired accuracy and speed. The Duckiebot has limited computational resources, therefore it is recommended to have a very light model. The inference model is then containerized using docker. The figure below shows the steps we took to build our object detector. 
+
 ![](../master/readme_pictures/Approach.png)
 *Figure 4: the major milestones of the project*
 

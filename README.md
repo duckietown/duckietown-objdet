@@ -317,7 +317,7 @@ Aside from developing a CNN-based object detector, we have developed a framework
 
 We have created an additional ([private](https://github.com/duckietown/objdet-challenge-evaluator/tree/master)) repository that contains testing images + labels in addition to an evaluator which compares labels it receives from an inference model with the ground truth. This results in a score which is displayed on the server. In the future, on of the metrics that the evaluator should be able to display is the prediction time & RAM usage which are crucial in the context of object detection in Duckietown.
 
-As the user, once the framework depicted in *Figure 8* is functional, you have to include your submission (inference model) in the /sub-objdet-OD folder within a docker environment, that will automatically get built when you submit to the challenge.
+As the user, once the framework depicted in *Figure 8* is functional, you have to include your submission (inference model) in the [/sub-objdet-OD](https://github.com/duckietown/duckietown-objdet/tree/master/sub-objdet-OD) folder within a docker environment, that will automatically get built when you submit to the challenge. Specific instructions on how to do so are given inside the folder.
 
 ![](../master/readme_pictures/AIDO.png)
 *Figure 8: diagram of the AIDO objdet challenge module*

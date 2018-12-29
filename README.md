@@ -315,7 +315,7 @@ If after watching our object detector in action you cannot wait to build your ow
 
 Aside from developing a CNN-based object detector, we have developed a framework that allows you to test the performance of your own object detector. This is analogous to the framework that CircleCi provides for unit tests, except this is targeted at *performance* tests.
 
-We have created an additional (private) repository that contains testing images + labels in addition to an evaluator which compares labels it receives from an inference model with the ground truth. This results in a score which is displayed on the server. In the future, on of the metrics that the evaluator should be able to display is the prediction time & RAM usage which are crucial in the context of object detection in Duckietown.
+We have created an additional ([private](https://github.com/duckietown/objdet-challenge-evaluator/tree/master)) repository that contains testing images + labels in addition to an evaluator which compares labels it receives from an inference model with the ground truth. This results in a score which is displayed on the server. In the future, on of the metrics that the evaluator should be able to display is the prediction time & RAM usage which are crucial in the context of object detection in Duckietown.
 
 As the user, once the framework depicted in *Figure 8* is functional, you have to include your submission (inference model) in the /sub-objdet-OD folder within a docker environment, that will automatically get built when you submit to the challenge.
 

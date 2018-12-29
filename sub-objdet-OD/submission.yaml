@@ -1,0 +1,4 @@
+challenge: object_detection
+protocol: objdet
+user-label: Solution
+user-payload: {}

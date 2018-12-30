@@ -6,17 +6,37 @@ import numpy as np
 import tensorflow as tf
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
+import os
 
 class ObjectDetection:
     def __init__(self, confidence):
+        #Relative paths
+        #src_dir = "../"+os.path.dirname(os.path.abspath(__file__)
+        #print(src_dir)
+        #example_detector_dir = os.path.join("../",dir)
+        #print(example_detector_dir)
+
+        dir = os.getcwd()
+        print(dir)
+        os.chdir("./example_detector/inference_files")
+        #Heavy model:
+        #PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(),"frozen_inference_graph-heavy.pb")
+        #Light model:
+        PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(),"frozen_inference_graph.pb")
+        PATH_TO_LABELS = os.path.join(os.getcwd(),"duckie_label_map.pbtxt") #display labels (for visualization)
+        PATH_TO_SUB_LABELS = os.path.join(os.getcwd(),"duckie_label_map_submission.pbtxt") #for a comparison with ground truth, the same naming has to be used
+
+        #PATH_TO_FROZEN_GRAPH = os.path.join(example_detector_dir,"inference_files/frozen_inference_graph-heavy.pb")
+        #PATH_TO_LABELS = os.path.join(example_detector_dir,"inference_files/duckie_label_map.pbtxt")
+
         # This is the path to frozen model
-        PATH_TO_FROZEN_GRAPH = "/node-ws/src/tf_object_detection/inference_files/frozen_inference_graph.pb"
+        #PATH_TO_FROZEN_GRAPH = "/node-ws/src/tf_object_detection/inference_files/frozen_inference_graph-heavy.pb"
         # For local testing, shoudle be deleted afterwards
         # PATH_TO_FROZEN_GRAPH = "/Users/zhou/Downloads/objid_node/src/tf_object_detection/inference_files/frozen_inference_graph.pb"
         # This is the path to the label_map of our project, which is required by the tensorlfow API
-        PATH_TO_LABELS = "/node-ws/src/tf_object_detection/inference_files/duckie_label_map.pbtxt"
+        #PATH_TO_LABELS = "/node-ws/src/tf_object_detection/inference_files/duckie_label_map.pbtxt"
         # For local testing, shoudle be deleted afterwards
-        # PATH_TO_LABELS = "/Users/zhou/Downloads/objid_node/src/tf_object_detection/inference_files/duckie_label_map.pbtxt"
+        #PATH_TO_LABELS = "/Users/zhou/Downloads/objid_node/src/tf_object_detection/inference_files/duckie_label_map.pbtxt"
         # Load a frozen Tensorflow model into memory
         self.__detection_graph = tf.Graph()
         with self.__detection_graph.as_default():
@@ -32,9 +52,11 @@ class ObjectDetection:
 
         # Load the label map. Label maps map indices to category names
         self.__category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
+        self.__category_index_submission = label_map_util.create_category_index_from_labelmap(PATH_TO_SUB_LABELS, use_display_name=True)
         # Store the confidence level
         self.__confidence = confidence
 
+    #image arg is an OpenCV image
     def run_inference_for_single_image(self, image):
         with self.__detection_graph.as_default():
             # Get handles to input and output tensors
@@ -71,11 +93,33 @@ class ObjectDetection:
             # all outputs are float32 numpy arrays, so convert types as appropriate
             output_dict['num_detections'] = int(output_dict['num_detections'][0])
             output_dict['detection_classes'] = output_dict['detection_classes'][0].astype(np.uint8)
-            output_dict['detection_boxes'] = output_dict['detection_boxes'][0]
-            output_dict['detection_scores'] = output_dict['detection_scores'][0]
+            output_dict['detection_boxes'] = output_dict['detection_boxes'][0].tolist()
+            output_dict['detection_scores'] = output_dict['detection_scores'][0].tolist()
             if 'detection_masks' in output_dict:
                 output_dict['detection_masks'] = output_dict['detection_masks'][0]
-        return output_dict
+
+
+            #Filter detections according to confidence threshold
+            #Use submission label map
+            output_dict_filtered = {}
+            output_dict_filtered['detection_scores']=[]
+            output_dict_filtered['detection_boxes']=[]
+            detected_list = []
+            total_detections = output_dict['num_detections']
+            if total_detections > 0:
+                for detection in range(0, total_detections):
+                    if output_dict['detection_scores'][detection] > self.__confidence:
+                        category = output_dict['detection_classes'][detection]
+                        detected_list.insert(0,self.__category_index_submission[category]['name'])
+                        output_dict_filtered['detection_boxes'].append(output_dict['detection_boxes'][detection])
+                        output_dict_filtered['detection_scores'].append(output_dict['detection_scores'][detection])
+                    #else:
+                        #del output_dict['detection_scores'][detection]
+                        #del output_dict['detection_boxes'][detection]
+
+            output_dict_filtered['detection_labels'] = detected_list
+            
+        return output_dict_filtered
 
 
     # This class function will be called from outside to scan the supplied img.

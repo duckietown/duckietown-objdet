@@ -4,29 +4,36 @@ import cv2
 import sys
 import os
 
+os.environ['KMP_DUPLICATE_LIB_OK']='True' #Mac sierra issue
 
 class MyClass():
 	def __init__(self):
 		self.label1 = 4
 
-	def run_my_code(self, image):
-        sys.path.append('./src')
-        sys.path.append("./models/research/")
+	def run_my_code(self, images):
+		sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),'src'))
+		sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),'models/research'))
+		#print(sys.path)
+		import object_detection_lib
 
-        import object_detection_lib
+		# Create the instance of ObjectDetection
+		odc = object_detection_lib.ObjectDetection(0.5)
+		#print("odc defined")
 
-        # Create the instance of ObjectDetection
-        odc = object_detection_lib.ObjectDetection(0.5)
+		predictions = []
 
-        cvimg = cv2.imread("/Users/zhou/Desktop/duckietown/duckietown_raw_dataset/all_images/good/b_BR_doort_frame00380.jpg")
+		for image in images: #image is already a cvimg
+			output_dict_filtered = odc.run_inference_for_single_image(image)
+			labels = output_dict_filtered["detection_labels"] #unicode strings
+			boxes = output_dict_filtered["detection_boxes"]
+			confidences = output_dict_filtered["detection_scores"]
 
-        # Detect the objects
-        object_names = odc.scan_for_objects(cvimg)
-        print(object_names)
-		# pred_label_img = np.ones((1, 1024, 2048), int)
-		#pred_label_img = self.test_set_from_eval * self.label1
-		#pred_label_img = np.ones((1,image.shape[0],image.shape[1]), int)
+			#Write JSON files
+			prediction = []
+			for i in range(0, len(labels)):
+				prediction.append({"label":labels[i],"confidence":confidences[i],"x":boxes[i][0],"y":boxes[i][1],"w":boxes[i][2],"h":boxes[i][3]})
 
-		return pred_label_img
+			predictions.append(prediction)
 
-########################## code coming from non-ros-test.py
+		print(predictions)
+		return predictions #list of  [{'confidence': 0.71, 'label': 'person'}, {'label1': 'duckie', 'confidence': 0.6}] elements

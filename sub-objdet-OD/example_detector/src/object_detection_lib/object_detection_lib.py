@@ -18,7 +18,7 @@ class ObjectDetection:
 
         dir = os.getcwd()
         print(dir)
-        os.chdir("./example_detector/inference_files")
+        os.chdir(os.path.join(dir,"example_detector","inference_files"))
         #Heavy model:
         #PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(),"frozen_inference_graph-heavy.pb")
         #Light model:
@@ -118,7 +118,7 @@ class ObjectDetection:
                         #del output_dict['detection_boxes'][detection]
 
             output_dict_filtered['detection_labels'] = detected_list
-            
+
         return output_dict_filtered
 
 

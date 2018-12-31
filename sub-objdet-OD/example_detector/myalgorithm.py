@@ -12,7 +12,7 @@ class MyClass():
 
 	def run_my_code(self, images):
 		sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),'src'))
-		sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),'models/research'))
+		sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),'models','research'))
 		#print(sys.path)
 		import object_detection_lib
 

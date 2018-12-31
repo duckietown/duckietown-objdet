@@ -4,6 +4,7 @@ from duckietown_challenges import wrap_solution, ChallengeSolution, ChallengeInt
 import time
 import cv2
 import rospy
+import rosbag
 
 class Solver(ChallengeSolution):
     def run(self, cis):

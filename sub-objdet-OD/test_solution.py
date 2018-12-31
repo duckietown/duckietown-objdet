@@ -4,6 +4,7 @@
 from example_detector import myalgorithm
 import time
 import cv2
+import rosbag
 import rospy
 
 start = time.time()

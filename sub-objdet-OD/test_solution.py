@@ -17,6 +17,8 @@ for image in images_path:
     images.append(image)
 
 #Bag test
+
+#LOCAL PATH! Only for testing
 bag_path = "/Users/davidoort/GitHubRepos/objdet-challenge-evaluator/evaluation/images.bag"
 bag = rosbag.Bag(bag_path)
 

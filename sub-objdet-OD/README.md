@@ -6,7 +6,7 @@ The general working principle of the AIDO challenge module we have developed is 
 The evaluator sends a bag-file containing test images and their filenames (on topic `/image` and `/filename`) to the submission container, which then extracts the test images from the bag file and detects objects for each test image. The detected objects are then sent back to the evaluator as a JSON-file. The evaluator extracts the objects from the JSON-file and creates a text-file for every test image containing the detected objects in a folder -detections-. The performance metrics are then calculated using the software listed in the references.
 The evaluation score is set as the mean-average-precision over all test images and all objects.
 
-
+In case object_detection is an official AIDO challenge or you have correctly setup a local server for development the first script to get executed in this repository is `solution.py` after running `make submit` or `make submit_local`. In case you cannot submit to a server, you can manually run `test_solution.py` which does not contain any server-related environment variables.
 
 # Words of caution
 This software is not fully functional!

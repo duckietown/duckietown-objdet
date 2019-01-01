@@ -1,12 +1,12 @@
 # objdet-challenge-submission
 This folder contains an example submission to the Object Detection and Identification AIDO challenge. It also contains a description of the file structure as well as how to submit your own object detector to the AIDO challenge. 
 
-The general working principle of the AIDO challenge module we have developed is depicted in *Figure 8* in the main [README](https://github.com/duckietown/duckietown-objdet/blob/master/README.md) file. 
+The general working principle of the AIDO challenge module we have developed is depicted in *Figure 8* in the main [README](https://github.com/duckietown/duckietown-objdet/blob/master/README.md) file. In summary, the process works as follows:
 
-
-
-The evaluator sends a bag-file containing test images and their filenames (on topic /image and /filename) to the submission container, which then extracts the test images from the bag file and detects objects for each test image. The detected objects are then sent back to the evaluator as a JSON-file. The evaluator extracts the objects from the JSON-file and creates a text-file for every test image containing the detected objects in a folder -detections-. The performance metrics are then calculated using the software listed in the references.
+The evaluator sends a bag-file containing test images and their filenames (on topic `/image` and `/filename`) to the submission container, which then extracts the test images from the bag file and detects objects for each test image. The detected objects are then sent back to the evaluator as a JSON-file. The evaluator extracts the objects from the JSON-file and creates a text-file for every test image containing the detected objects in a folder -detections-. The performance metrics are then calculated using the software listed in the references.
 The evaluation score is set as the mean-average-precision over all test images and all objects.
+
+
 
 # Words of caution
 This software is not fully functional!
@@ -22,4 +22,7 @@ When you run `make submit_local` inside of the /sub-objdet-OD folder you are in 
 
 The reason this template might not be fully correct is because the team has not been able to test and debug it. The local server does not work properly for a majority of the people who have tried to set it up. The testing that has been done is through `test_solution.py`, which only makes predictions on images which are stored locally instead of images coming from the evaluator. 
 
+# References
+
+The following repository is included in our evaluator repository and used to calculate the performance metrics: https://github.com/rafaelpadilla/Object-Detection-Metrics
 

@@ -9,7 +9,13 @@ The evaluator sends a bag-file containing test images and their filenames (on to
 The evaluation score is set as the mean-average-precision over all test images and all objects.
 
 # Words of caution
-<span style="color:red">This software is not fully functional</span>
+This software is not fully functional!
+
+First of all, you might have noticed that in the ```makefile``` there is the `option` of running `submit_local` which points to the command `DTSERVER=http://localhost:6544 dts challenges submit`. The reason this is there is that if you look at our ```submission.yaml```you will see that *challenge* is set to object_detection. At the moment this is not an official AIDO challenge (hopefully in AIDO 2 it will be). What this means is that if in the ```makefile```you try to run `submit` it will fail since it will try to submit the challenge to the official server (which as mentioned does not contain the object_detection challenge environment).
+
+
+
+
 The reason is, that we did not have the possibility to test and therefore debug our code, meaning it most probably does not work.
 
 The ground-truths for the test images (coming from the evaluator) are badly labeled and should not be used for any kind of performance evaluation! We are using them anyway.

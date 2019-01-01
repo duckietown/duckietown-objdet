@@ -9,7 +9,7 @@ The evaluator sends a bag-file containing test images and their filenames (on to
 The evaluation score is set as the mean-average-precision over all test images and all objects.
 
 # Words of caution
-<span style="color:red">This software is not fully functional>
+<span style="color:red">This software is not fully functional</span>
 The reason is, that we did not have the possibility to test and therefore debug our code, meaning it most probably does not work.
 
 The ground-truths for the test images (coming from the evaluator) are badly labeled and should not be used for any kind of performance evaluation! We are using them anyway.

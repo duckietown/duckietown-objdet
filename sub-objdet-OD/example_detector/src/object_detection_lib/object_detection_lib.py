@@ -7,6 +7,7 @@ import tensorflow as tf
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 import os
+from pathlib import Path
 
 class ObjectDetection:
     def __init__(self, confidence):
@@ -16,15 +17,25 @@ class ObjectDetection:
         #example_detector_dir = os.path.join("../",dir)
         #print(example_detector_dir)
 
+        #This makes sure that when using path, the working directory is the folder this file is in (which makes it easier to work with relative paths)
+        #Before I had issues because this function was being called from different files (different cwd() which would mess up the paths)
         dir = os.getcwd()
+        print("----")
         print(dir)
-        os.chdir(os.path.join(dir,"example_detector","inference_files"))
+        print(os.path.dirname(__file__))
+        os.chdir(os.path.dirname(__file__))
+
         #Heavy model:
         #PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(),"frozen_inference_graph-heavy.pb")
         #Light model:
-        PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(),"frozen_inference_graph.pb")
-        PATH_TO_LABELS = os.path.join(os.getcwd(),"duckie_label_map.pbtxt") #display labels (for visualization)
-        PATH_TO_SUB_LABELS = os.path.join(os.getcwd(),"duckie_label_map_submission.pbtxt") #for a comparison with ground truth, the same naming has to be used
+        #PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(),"frozen_inference_graph.pb")
+        #dirpath = Path(os.path.abspath(__file__)) / "../"
+        #print(dirpath)
+        PATH_TO_FROZEN_GRAPH = os.path.abspath(str(Path("../../inference_files/frozen_inference_graph-heavy.pb")))
+        #print(PATH_TO_FROZEN_GRAPH)
+        PATH_TO_LABELS = os.path.abspath(str(Path("../../inference_files/duckie_label_map.pbtxt"))) #display labels (for visualization)
+        #print(PATH_TO_LABELS)
+        PATH_TO_SUB_LABELS = os.path.abspath(str(Path("../../inference_files/duckie_label_map_submission.pbtxt"))) #for a comparison with ground truth, the same naming has to be used
 
         #PATH_TO_FROZEN_GRAPH = os.path.join(example_detector_dir,"inference_files/frozen_inference_graph-heavy.pb")
         #PATH_TO_LABELS = os.path.join(example_detector_dir,"inference_files/duckie_label_map.pbtxt")
@@ -119,7 +130,7 @@ class ObjectDetection:
 
             output_dict_filtered['detection_labels'] = detected_list
 
-        return output_dict_filtered
+        return output_dict,output_dict_filtered
 
 
     # This class function will be called from outside to scan the supplied img.
@@ -128,8 +139,10 @@ class ObjectDetection:
     def scan_for_objects(self, image_np):
         # The img is already a numpy array of size height,width, 3
         # Actual detection.
-        output_dict = self.run_inference_for_single_image(image_np)
+        output_dict = self.run_inference_for_single_image(image_np)[0]
 
+        output_dict['detection_boxes'] = np.array(output_dict['detection_boxes'])
+        output_dict['detection_scores'] = np.array(output_dict['detection_scores'])
         #print output_dict
 
         vis_util.visualize_boxes_and_labels_on_image_array(

@@ -20,12 +20,6 @@ When you run `make submit_local` inside of the /sub-objdet-OD folder you are in 
 
 **Note**: If object_detection was an official AIDO challenge, you would not have to go through all of this since the challenge would already be defined and the evaluator would be stored in the official server. 
 
+The reason this template might not be fully correct is because the team has not been able to test and debug it. The local server does not work properly for a majority of the people who have tried to set it up. The testing that has been done is through `test_solution.py`, which only makes predictions on images which are stored locally instead of images coming from the evaluator. 
 
-
-
-
-
-The reason is, that we did not have the possibility to test and therefore debug our code, meaning it most probably does not work.
-
-The ground-truths for the test images (coming from the evaluator) are badly labeled and should not be used for any kind of performance evaluation! We are using them anyway.
 

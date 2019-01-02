@@ -22,10 +22,10 @@ start = time.time()
 # os.chdir(os.path.dirname(__file__))
 
 
-images_path = os.path.abspath(str(Path("../duckie_data/training-images/b_BR_doort_frame00268.jpg")))
+paths_images = [os.path.abspath(str(Path("../duckie_data/training-images/b_BR_doort_frame00268.jpg")))]
 #images_path = ["/Users/davidoort/Downloads/bad_label_3.jpg"]
 images = [] #seems dumb in this example
-for image in images_path:
+for image in paths_images:
     image = cv2.imread(image)
     images.append(image)
 
@@ -75,26 +75,22 @@ cv2.destroyAllWindows()
 
 cv2.imwrite('adjusted_test_image.jpg', cvimg)
 
-# predictions_dict = {}
+# predictions_dict = {} #dict of  {"image_name":[{'confidence': 0.71, 'label': 'person'}, {'label1': 'duckie', 'confidence': 0.6}]} elements
 # i = 0
 # for img_name in names:
 #     predictions_dict["img_name"].append(predictions[i])
-
-#Compatibility with eval.py (code copied from there)
-cwd = os.getcwd()
-os.mkdir(os.path.join(cwd, 'detections'))
-os.chdir('detections')
-for image in predictions:
-    file = open(image+".txt","w")
-    counter = 0
-    for label in data[image]:
-        file.write("%s %s %s %s %s %s\r\n" % (data[image][counter]["label"], data[image][counter]["confidence"], data[image][counter]["x"], data[image][counter]["y"], data[image][counter]["w"], data[image][counter]["h"]))
-        counter = counter+1
-        file.close()
-
-
-
-
 #     i =+ 1
 
+
 #Test interaction with evaluation container
+##Compatibility with eval.py (code copied from there)
+# cwd = os.getcwd()
+# os.mkdir(os.path.join(cwd, 'detections'))
+# os.chdir('detections')
+# for image in predictions_dict:
+#     file = open(image+".txt","w")
+#     counter = 0
+#     for label in data[image]:
+#         file.write("%s %s %s %s %s %s\r\n" % (data[image][counter]["label"], data[image][counter]["confidence"], data[image][counter]["x"], data[image][counter]["y"], data[image][counter]["w"], data[image][counter]["h"]))
+#         counter = counter+1
+#         file.close()

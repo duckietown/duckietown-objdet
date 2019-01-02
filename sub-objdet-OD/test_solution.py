@@ -6,13 +6,24 @@ import time
 import cv2
 from pathlib import Path
 import sys
+import os
 #import rosbag
 #import rospy
 
 start = time.time()
 
 #Single image test
-images_path = ["/Users/davidoort/Downloads/bad_label_3.jpg"]
+#LOCAL PATH! Only for testing
+
+# dir = os.getcwd()
+# print("----")
+# print(dir)
+# print(os.path.dirname(os.path.realpath(__file__)))
+# os.chdir(os.path.dirname(__file__))
+
+
+images_path = os.path.abspath(str(Path("../duckie_data/training-images/b_BR_doort_frame00268.jpg")))
+#images_path = ["/Users/davidoort/Downloads/bad_label_3.jpg"]
 images = [] #seems dumb in this example
 for image in images_path:
     image = cv2.imread(image)
@@ -23,7 +34,7 @@ for image in images_path:
 #Bag test
 
 #LOCAL PATH! Only for testing
-# bag_path = "/Users/davidoort/GitHubRepos/objdet-challenge-evaluator/evaluation/images.bag"
+# bag_path = os.path.abspath(str(Path("../../objdet-challenge-evaluator/evaluation/images.bag")))
 # bag = rosbag.Bag(bag_path)
 #
 # images = []
@@ -68,6 +79,22 @@ cv2.imwrite('adjusted_test_image.jpg', cvimg)
 # i = 0
 # for img_name in names:
 #     predictions_dict["img_name"].append(predictions[i])
+
+#Compatibility with eval.py (code copied from there)
+cwd = os.getcwd()
+os.mkdir(os.path.join(cwd, 'detections'))
+os.chdir('detections')
+for image in predictions:
+    file = open(image+".txt","w")
+    counter = 0
+    for label in data[image]:
+        file.write("%s %s %s %s %s %s\r\n" % (data[image][counter]["label"], data[image][counter]["confidence"], data[image][counter]["x"], data[image][counter]["y"], data[image][counter]["w"], data[image][counter]["h"]))
+        counter = counter+1
+        file.close()
+
+
+
+
 #     i =+ 1
 
 #Test interaction with evaluation container

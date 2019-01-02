@@ -36,4 +36,4 @@ class MyClass():
 			predictions.append(prediction)
 
 		print(predictions)
-		return predictions #list of  [{'confidence': 0.71, 'label': 'person'}, {'label1': 'duckie', 'confidence': 0.6}] elements
+		return predictions #dict of  {"image_name":[{'confidence': 0.71, 'label': 'person'}, {'label1': 'duckie', 'confidence': 0.6}]} elements

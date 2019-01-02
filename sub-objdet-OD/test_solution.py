@@ -73,7 +73,7 @@ cv2.imshow('object detection', cvimg)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-cv2.imwrite('adjusted_test_image.jpg', cvimg)
+#cv2.imwrite('adjusted_test_image.jpg', cvimg)
 
 # predictions_dict = {} #dict of  {"image_name":[{'confidence': 0.71, 'label': 'person'}, {'label1': 'duckie', 'confidence': 0.6}]} elements
 # i = 0

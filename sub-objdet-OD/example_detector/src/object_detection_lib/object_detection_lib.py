@@ -31,7 +31,7 @@ class ObjectDetection:
         #PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(),"frozen_inference_graph.pb")
         #dirpath = Path(os.path.abspath(__file__)) / "../"
         #print(dirpath)
-        PATH_TO_FROZEN_GRAPH = os.path.abspath(str(Path("../../inference_files/frozen_inference_graph-heavy.pb")))
+        PATH_TO_FROZEN_GRAPH = os.path.abspath(str(Path("../../inference_files/frozen_inference_graph.pb")))
         #print(PATH_TO_FROZEN_GRAPH)
         PATH_TO_LABELS = os.path.abspath(str(Path("../../inference_files/duckie_label_map.pbtxt"))) #display labels (for visualization)
         #print(PATH_TO_LABELS)
@@ -130,7 +130,7 @@ class ObjectDetection:
 
             output_dict_filtered['detection_labels'] = detected_list
 
-        return output_dict,output_dict_filtered
+        return [output_dict,output_dict_filtered]
 
 
     # This class function will be called from outside to scan the supplied img.

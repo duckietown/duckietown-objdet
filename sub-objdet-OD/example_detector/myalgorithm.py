@@ -21,8 +21,10 @@ class MyClass():
 		#print("odc defined")
 
 		predictions = []
-
+		print(images)
 		for image in images: #image is already a cvimg
+			print(image)
+			#print(odc.run_inference_for_single_image(image))
 			output_dict_filtered = odc.run_inference_for_single_image(image)[1]
 			labels = output_dict_filtered["detection_labels"] #unicode strings
 			boxes = output_dict_filtered["detection_boxes"]
@@ -36,4 +38,4 @@ class MyClass():
 			predictions.append(prediction)
 
 		print(predictions)
-		return predictions #dict of  {"image_name":[{'confidence': 0.71, 'label': 'person'}, {'label1': 'duckie', 'confidence': 0.6}]} elements
+		return predictions #list of [{'confidence': 0.71, 'label': 'person'}, {'label1': 'duckie', 'confidence': 0.6}] elements

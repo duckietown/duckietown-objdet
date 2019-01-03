@@ -9,6 +9,12 @@ from object_detection.utils import visualization_utils as vis_util
 import os
 from pathlib import Path
 
+#Silence TF messages
+from tensorflow import logging
+os.environ['TF_CPP_MIN_VLOG_LEVEL'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+logging.set_verbosity(logging.FATAL)
+
 class ObjectDetection:
     def __init__(self, confidence):
         #Relative paths
@@ -20,9 +26,6 @@ class ObjectDetection:
         #This makes sure that when using path, the working directory is the folder this file is in (which makes it easier to work with relative paths)
         #Before I had issues because this function was being called from different files (different cwd() which would mess up the paths)
         dir = os.getcwd()
-        print("----")
-        print(dir)
-        print(os.path.dirname(__file__))
         os.chdir(os.path.dirname(__file__))
 
         #Heavy model:

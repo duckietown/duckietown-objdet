@@ -1,0 +1,35 @@
+item {
+  id: 1
+  name: 'Duckie'
+}
+
+item {
+  id: 2
+  name: 'Traffic light'
+}
+
+item {
+  id: 3
+  name: 'Duckiebot'
+}
+
+item {
+  id: 4
+  name: 'Stop sign'
+}
+
+item {
+  id: 5
+  name: 'Intersection sign'
+}
+
+item {
+  id: 6
+  name: 'Signal sign'
+}
+
+item {
+  id: 7
+  name: 'QR code'
+}
+

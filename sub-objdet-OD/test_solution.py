@@ -45,21 +45,6 @@ bag = rosbag.Bag(bag_path)
 
 images = []
 names = []
-# i = 0
-# for topic, msg, t in bag.read_messages():
-#     if i == 1:
-#         if topic == "/filename":
-#             print(topic)
-#             print(msg.data)
-#             print(type(msg))
-#             print(type(topic))
-#         else:
-#             print(topic)
-#             cv_image = bridge.imgmsg_to_cv2(msg, desired_encoding="passthrough")
-#             print(cv_image)
-#             print(type(msg))
-#             print(type(topic))
-#     i+=1
 
 for topic, msg, t in bag.read_messages(topics=["/image","/filename"]):
     if topic == "/image":
@@ -76,33 +61,29 @@ inference_time = end-start
 #print(predictions)
 print("Inference time: %s seconds" %inference_time)
 
-#Optional visualization (from non-ros-test.py)
-path_obj_lib = Path("./example_detector/src/")
-sys.path.append(path_obj_lib)
-#sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),'src'))
-#sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),'models','research'))
+# --------------------------------------------------------------------------
 
-import object_detection_lib
+vis = True #Optional visualization of bounding boxes on sample images
+if vis:
+    path_obj_lib = Path("./example_detector/src/")
+    sys.path.append(path_obj_lib)
 
-odc = object_detection_lib.ObjectDetection(0.5)
-print("odc defined")
+    import object_detection_lib
 
-cvimg = images[0]
-cvimg.setflags(write=1) #Otherwise we cannot write bounding boxes on the image
-object_names = odc.scan_for_objects(cvimg)
+    odc = object_detection_lib.ObjectDetection(0.5)
 
-#cv2.imshow('object detection', cvimg)
-#cv2.waitKey(0)
-#cv2.destroyAllWindows()
+    cvimgs = [images[0],images[1]]
+    i = 0
+    for cvimg in cvimgs:
+        cvimg.setflags(write=1) #Otherwise we cannot write bounding boxes on the image
+        object_names = odc.scan_for_objects(cvimg)
 
-cv2.imwrite('adjusted_test_image.jpg', cvimg)
+        #cv2.imshow('object detection', cvimg)
+        #cv2.waitKey(0)
+        #cv2.destroyAllWindows()
 
-
-cvimg = images[1]
-cvimg.setflags(write=1) #Otherwise we cannot write bounding boxes on the image
-object_names = odc.scan_for_objects(cvimg)
-
-cv2.imwrite('adjusted_test_image2.jpg', cvimg)
+        cv2.imwrite('adjusted_test_image_'+i+'.jpg', cvimg)
+        i = i + 1
 
 
 

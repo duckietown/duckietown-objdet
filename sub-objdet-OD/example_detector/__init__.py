@@ -1,0 +1,1 @@
+from .myalgorithm import *

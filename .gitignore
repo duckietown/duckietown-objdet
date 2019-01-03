@@ -8,3 +8,4 @@ out-*
 .ipynb_checkpoints
 .compmake_history.txt
 testing-cookies/lib-*
+.idea/
